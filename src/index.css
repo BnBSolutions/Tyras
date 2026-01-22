@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* TYRAS Cross-Border Auto Logistics Design System
+   Brand: Navy #0B1F3B, Gold #FFC914, White #FFFFFF
+   Accents: Slate-100, Emerald-500
+   Typography: Inter (body), Manrope (headings)
+   Spacing: 8pt system, 14px minimum text
+*/
+
+@layer base {
+  :root {
+    /* Core Brand Colors (HSL) */
+    --navy: 214 71% 14%;
+    --navy-deep: 222 47% 3%;
+    --gold: 45 100% 54%;
+    --gold-dim: 45 100% 44%;
+    
+    /* Semantic Tokens */
+    --background: 0 0% 100%;
+    --foreground: 214 71% 14%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 214 71% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 214 71% 14%;
+
+    --primary: 45 100% 54%;
+    --primary-foreground: 214 71% 14%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 214 71% 14%;
+
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 214 71% 14%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 160 84% 39%;
+    --success-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 45 100% 54%;
+
+    --radius: 0.5rem;
+
+    /* Glass Effect */
+    --glass-bg: 0 0% 100% / 0.8;
+    --glass-border: 0 0% 100% / 0.1;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --shadow-gold: 0 4px 14px 0 hsl(45 100% 54% / 0.3);
+  }
+
+  .dark {
+    --background: 222 47% 3%;
+    --foreground: 210 40% 98%;
+
+    --card: 214 71% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 214 71% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 45 100% 54%;
+    --primary-foreground: 214 71% 14%;
+
+    --secondary: 214 32% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 214 32% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 45 100% 54%;
+    --accent-foreground: 214 71% 14%;
+
+    --success: 160 84% 39%;
+    --success-foreground: 0 0% 100%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 17%;
+    --input: 214 32% 17%;
+    --ring: 45 100% 54%;
+
+    --glass-bg: 214 71% 14% / 0.8;
+    --glass-border: 0 0% 100% / 0.1;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Manrope', system-ui, sans-serif;
+    @apply font-bold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl;
+  }
+
+  /* Focus rings for accessibility */
+  :focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
+  }
+
+  /* Skip link for accessibility */
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md;
+  }
+}
+
+@layer components {
+  /* Glass morphism header */
+  .glass-header {
+    @apply backdrop-blur-lg bg-background/80 border-b border-white/10;
+  }
+
+  /* Hero overlay gradient */
+  .hero-overlay {
+    background: radial-gradient(ellipse at center, 
+      hsl(var(--navy) / 0.7) 0%, 
+      hsl(var(--navy) / 0.9) 100%
+    );
+  }
+
+  /* Gold gradient for accents */
+  .gold-gradient {
+    background: linear-gradient(135deg, 
+      hsl(var(--gold)) 0%, 
+      hsl(var(--gold-dim)) 100%
+    );
+  }
+
+  /* Service card hover effect */
+  .service-card {
+    @apply relative overflow-hidden rounded-xl bg-card border border-border p-6 transition-all duration-300;
+  }
+
+  .service-card:hover {
+    @apply -translate-y-2 shadow-xl;
+  }
+
+  /* Animated underline for links */
+  .link-underline {
+    @apply relative inline-block;
+  }
+
+  .link-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 origin-right transition-transform duration-300;
+  }
+
+  .link-underline:hover::after {
+    @apply scale-x-100 origin-left;
+  }
+
+  /* Trust badge styling */
+  .trust-badge {
+    @apply flex items-center justify-center w-16 h-16 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 transition-all duration-300;
+  }
+
+  .trust-badge:hover {
+    @apply bg-white/20 scale-105;
+  }
+
+  /* Progress stepper line */
+  .stepper-line {
+    @apply absolute left-6 top-12 w-0.5 h-full bg-border;
+  }
+
+  .stepper-line-fill {
+    @apply absolute left-0 top-0 w-full bg-primary transition-all duration-700 ease-out;
+  }
+
+  /* Map marker pulse animation */
+  .marker-pulse {
+    @apply absolute rounded-full bg-primary/50 animate-ping;
+  }
+
+  /* Counter animation container */
+  .counter-value {
+    @apply font-bold text-4xl md:text-5xl text-primary tabular-nums;
+  }
+
+  /* Quote calculator card */
+  .quote-card {
+    @apply rounded-2xl bg-card border border-border shadow-xl p-8;
+  }
+
+  /* Testimonial card */
+  .testimonial-card {
+    @apply flex-shrink-0 w-80 md:w-96 p-6 rounded-xl bg-card border border-border shadow-lg;
+  }
+
+  /* Career card */
+  .career-card {
+    @apply rounded-xl bg-card border border-border p-6 transition-all duration-300 hover:shadow-lg hover:border-primary/30;
+  }
+}
+
+@layer utilities {
+  /* 8pt spacing system utilities */
+  .space-8 { gap: 8px; }
+  .space-16 { gap: 16px; }
+  .space-24 { gap: 24px; }
+  .space-32 { gap: 32px; }
+  .space-48 { gap: 48px; }
+  .space-64 { gap: 64px; }
+
+  /* Section padding */
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  /* Container with max width */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Text gradient */
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-yellow-400;
+  }
+
+  /* Navy text for specific use cases */
+  .text-navy {
+    color: hsl(var(--navy));
+  }
+
+  /* Gold text */
+  .text-gold {
+    color: hsl(var(--gold));
+  }
+
+  /* Navy background */
+  .bg-navy {
+    background-color: hsl(var(--navy));
+  }
+
+  /* Gold background */
+  .bg-gold {
+    background-color: hsl(var(--gold));
+  }
+}
