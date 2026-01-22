@@ -97,7 +97,7 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-2 max-w-2xl mx-auto">
               <div className="flex-1 relative w-full">
                 <Input
-                  placeholder="Enter AWB or Reference Number"
+                  placeholder="Container, Booking, Lot, VIN"
                   value={awbNumber}
                   onChange={(e) => setAwbNumber(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleTrack()}
@@ -106,8 +106,7 @@ export default function Hero() {
               </div>
               <Button
                 onClick={handleTrack}
-                disabled={isTracking || !awbNumber.trim()}
-                className="h-12 sm:h-14 md:h-16 w-full sm:w-auto px-6 sm:px-8 md:px-10 bg-primary hover:bg-gold-dim text-navy font-bold text-sm sm:text-base md:text-lg rounded-xl sm:rounded-r-xl sm:rounded-l-none shadow-lg whitespace-nowrap min-w-[100px] sm:min-w-[120px]"
+                className="h-12 sm:h-14 md:h-16 w-full sm:w-auto px-6 sm:px-8 md:px-10 bg-primary hover:bg-gold-dim text-navy font-bold text-sm sm:text-base md:text-lg rounded-xl sm:rounded-r-xl sm:rounded-l-none shadow-lg whitespace-nowrap min-w-[100px] sm:min-w-[120px] cursor-pointer relative z-10"
               >
                 {isTracking ? 'Tracking...' : 'Track'}
               </Button>

@@ -64,10 +64,6 @@ export default function Navigation() {
   };
 
   return (
-    <>
-      <a href="#main-content" className="skip-link">
-        Skip to main content
-      </a>
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -237,6 +233,5 @@ export default function Navigation() {
           )}
         </AnimatePresence>
       </motion.header>
-    </>
   );
 }
