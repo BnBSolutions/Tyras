@@ -195,7 +195,7 @@ export default function Contact() {
                     id="origin"
                     value={formData.origin}
                     onChange={(e) => handleChange('origin', e.target.value)}
-                    placeholder="Toronto, ON"
+                    placeholder="Bancroft, ON"
                   />
                 </div>
                 <div>
@@ -204,7 +204,7 @@ export default function Contact() {
                     id="destination"
                     value={formData.destination}
                     onChange={(e) => handleChange('destination', e.target.value)}
-                    placeholder="Miami, FL"
+                    placeholder="Ottawa, FL"
                   />
                 </div>
               </div>
