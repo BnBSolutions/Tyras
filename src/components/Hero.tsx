@@ -109,7 +109,7 @@ export default function Hero() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white/30 text-white hover:bg-white/10 hover:text-white text-lg px-8 py-6"
+                  className="border-white/30 text-black hover:bg-white/10 hover:text-white text-lg px-8 py-6"
                 >
                   <Search className="mr-2 w-5 h-5" />
                   Track shipment
