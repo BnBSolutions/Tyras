@@ -72,9 +72,9 @@ export default function Navigation() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full ${
           isScrolled
-            ? 'glass-header shadow-lg'
+            ? ' shadow-lg bg-[#0a203d] text-white border-b border-white/10'
             : 'bg-transparent'
         }`}
       >
@@ -89,12 +89,8 @@ export default function Navigation() {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
             >
-              <div className="w-10 h-10 rounded-lg bg-gold flex items-center justify-center">
-                <span className="text-navy font-display font-bold text-xl">T</span>
-              </div>
-              <span className={`font-display font-bold text-xl ${isScrolled ? 'text-foreground' : 'text-white'}`}>
-                TYRAS
-              </span>
+              <img src="/Tyras/image-removebg-preview.png" alt="Tyras Logistics Logo" className="h-8 w-auto" />
+              
             </a>
 
             {/* Desktop Navigation */}
@@ -105,7 +101,7 @@ export default function Navigation() {
                   onClick={() => scrollToSection(link.href)}
                   className={`link-underline text-sm font-medium transition-colors ${
                     isScrolled 
-                      ? 'text-foreground hover:text-primary' 
+                      ? 'text-white hover:text-primary' 
                       : 'text-white/90 hover:text-white'
                   }`}
                 >
@@ -122,7 +118,7 @@ export default function Navigation() {
                   <Button 
                     variant="ghost" 
                     size="sm" 
-                    className={`gap-1.5 ${isScrolled ? 'text-foreground' : 'text-white'}`}
+                    className={`gap-1.5 ${isScrolled ? 'text-white' : 'text-white'}`}
                   >
                     <Globe className="w-4 h-4" />
                     <span className="text-xs font-medium">{language.toUpperCase()}</span>
@@ -148,7 +144,7 @@ export default function Navigation() {
                   <Button 
                     variant="ghost" 
                     size="sm" 
-                    className={`gap-1.5 ${isScrolled ? 'text-foreground' : 'text-white'}`}
+                    className={`gap-1.5 ${isScrolled ? 'text-white' : 'text-white'}`}
                   >
                     <DollarSign className="w-4 h-4" />
                     <span className="text-xs font-medium">{currency}</span>
@@ -170,7 +166,7 @@ export default function Navigation() {
               {/* CTA Button */}
               <Button 
                 onClick={() => scrollToSection('#quote')}
-                className="bg-primary text-primary-foreground hover:bg-gold-dim shadow-gold"
+                className="bg-primary text-primary-white hover:bg-gold-dim shadow-gold"
               >
                 Get Quote
               </Button>
@@ -179,7 +175,7 @@ export default function Navigation() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`lg:hidden p-2 ${isScrolled ? 'text-foreground' : 'text-white'}`}
+              className={`lg:hidden p-2 ${isScrolled ? 'text-white' : 'text-white'}`}
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -194,14 +190,14 @@ export default function Navigation() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden bg-background border-t border-border"
+              className="lg:hidden bg-background border-t border-border overflow-hidden"
             >
-              <div className="container-custom py-6 space-y-4">
+              <div className="container-custom py-6 space-y-4 max-w-full">
                 {navLinks.map((link) => (
                   <button
                     key={link.href}
                     onClick={() => scrollToSection(link.href)}
-                    className="block w-full text-left py-2 text-foreground hover:text-primary font-medium"
+                    className="block w-full text-left py-2 text-white hover:text-primary font-medium"
                   >
                     {link.label}
                   </button>
@@ -210,7 +206,7 @@ export default function Navigation() {
                   <select
                     value={language}
                     onChange={(e) => setLanguage(e.target.value)}
-                    className="bg-muted rounded-md px-3 py-2 text-sm"
+                    className="bg-muted rounded-md px-3 py-2 text-sm flex-1"
                   >
                     {languages.map((lang) => (
                       <option key={lang.code} value={lang.code}>
@@ -221,7 +217,7 @@ export default function Navigation() {
                   <select
                     value={currency}
                     onChange={(e) => setCurrency(e.target.value)}
-                    className="bg-muted rounded-md px-3 py-2 text-sm"
+                    className="bg-muted rounded-md px-3 py-2 text-sm flex-1"
                   >
                     {currencies.map((curr) => (
                       <option key={curr.code} value={curr.code}>
@@ -232,7 +228,7 @@ export default function Navigation() {
                 </div>
                 <Button 
                   onClick={() => scrollToSection('#quote')}
-                  className="w-full bg-primary text-primary-foreground"
+                  className="w-full bg-primary text-primary-white"
                 >
                   Get Quote
                 </Button>

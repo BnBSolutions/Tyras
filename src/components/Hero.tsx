@@ -45,7 +45,7 @@ export default function Hero() {
         <img
           src={heroBridge}
           alt="Car carrier truck crossing Canada-US border bridge at dawn"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
         />
         <div className="hero-overlay absolute inset-0" />
       </div>
