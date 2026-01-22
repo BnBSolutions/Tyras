@@ -137,7 +137,7 @@ export default function Hero() {
             <Button
               size="lg"
               onClick={scrollToQuote}
-              className="bg-primary text-primary-foreground hover:bg-gold-dim shadow-gold-lg text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 group w-full sm:w-auto max-w-xs sm:max-w-none"
+              className="h-12 sm:h-14 md:h-16 w-full sm:w-auto px-6 sm:px-8 md:px-10 bg-primary hover:bg-gold-dim text-navy font-bold text-sm sm:text-base md:text-lg rounded-xl sm:rounded-r-xl sm:rounded-l-none shadow-lg whitespace-nowrap min-w-[100px] sm:min-w-[120px] cursor-pointer relative z-10"
             >
               Get instant quote
               <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" />
